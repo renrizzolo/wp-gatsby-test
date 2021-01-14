@@ -165,49 +165,48 @@ async function getPosts({ graphql, reporter }) {
   return graphqlResult.data.allWpPost.edges
 }
 
-// // resolve images to CoreImageBlock img (so I can leverage react for e.g using react-medium-image-zoom in components/blocks/CoreImageBlock)
-// // but this isn't needed for this demo
-// exports.createResolvers = async ({
-//   actions,
-//   cache,
-//   createNodeId,
-//   createResolvers,
-//   store,
-//   reporter,
-//   getNode,
-//   tracer,
-// }) => {
-//   const resolvers = {
-//     WpCoreImageBlock: {
-//       img: {
-//         type: `WpMediaItem`,
-//         resolve: (source, args, context, info) => {
+// resolve images to CoreImageBlock img (so I can leverage react
+// for e.g using react-medium-image-zoom in components/blocks/CoreImageBlock)
+exports.createResolvers = async ({
+  actions,
+  cache,
+  createNodeId,
+  createResolvers,
+  store,
+  reporter,
+  getNode,
+  tracer,
+}) => {
+  const resolvers = {
+    WpCoreImageBlock: {
+      img: {
+        type: `WpMediaItem`,
+        resolve: (source, args, context, info) => {
+          const {
+            id,
+          } = source.attributes__typename_CoreImageBlockAttributesUnion
 
-//           const {
-//             id,
-//           } = source.attributes__typename_CoreImageBlockAttributesUnion
+          if (!id) return
+          const query = {
+            filter: {
+              databaseId: {
+                eq: id,
+              },
+            },
+          }
 
-//           if (!id) return
-//           const query = {
-//             filter: {
-//               databaseId: {
-//                 eq: id,
-//               },
-//             },
-//           }
-
-//           const img = context.nodeModel.runQuery({
-//             query,
-//             type: `WpMediaItem`,
-//             firstOnly: true,
-//           })
-//           return img
-//         },
-//       },
-//     },
-//   }
-//   await createResolvers(resolvers)
-// }
+          const img = context.nodeModel.runQuery({
+            query,
+            type: `WpMediaItem`,
+            firstOnly: true,
+          })
+          return img
+        },
+      },
+    },
+  }
+  await createResolvers(resolvers)
+}
 
 // https://github.com/wp-graphql/wp-graphql/issues/1460
 exports.createSchemaCustomization = ({ actions }) => {
