@@ -1,0 +1,52 @@
+.post-blocks .core-block-paragraph {
+  margin-bottom: var(--space-sm);
+}
+/* alignfull/wide overrides */
+.post-blocks .alignright {
+  float: right;
+  display: inline-block;
+  margin-left: var(--space-md);
+}
+.post-blocks .alignleft {
+  margin-right: var(--space-md);
+  float: left;
+  display: inline-block;
+}
+.post-blocks .aligncenter {
+  align-self: center;
+  display: inline-block;
+  margin-left: auto;
+  margin-right: auto;
+}
+.post-blocks > .alignfull {
+  margin-right: calc((var(--space-sm) * -1));
+  margin-left: calc((var(--space-sm) * -1));
+}
+.post-blocks > .alignwide {
+  margin-right: 0;
+  margin-left: 0;
+}
+@media screen and (min-width: 48rem) {
+  .post-blocks > .alignfull {
+    margin-right: calc((var(--component-padding) * -1) / 2);
+    margin-left: calc((var(--component-padding) * -1) / 2);
+  }
+  .post-blocks > .alignwide {
+    margin-left: -1em;
+    margin-right: -1em;
+  }
+}
+@media screen and (min-width: 64rem) {
+  .post-blocks > .alignwide {
+    margin-left: calc((100vw - 768px) / 3);
+    margin-right: calc((100vw - 768px) / 3);
+  }
+  .post-blocks > .alignfull {
+    margin-left: auto;
+    margin-right: auto;
+    /* margin-left: calc(50% - 50vw);
+      margin-right: calc(50% - 50vw); */
+    width: auto;
+    max-width: initial;
+  }
+}
