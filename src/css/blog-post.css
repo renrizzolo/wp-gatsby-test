@@ -50,3 +50,7 @@
     max-width: initial;
   }
 }
+
+.post-blocks .wp-block-image figcaption {
+  display: block;
+}
