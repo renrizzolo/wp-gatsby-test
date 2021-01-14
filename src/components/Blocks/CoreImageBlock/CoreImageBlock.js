@@ -4,7 +4,6 @@ import Zoom from "react-medium-image-zoom"
 import Image from "../../Image"
 
 const CoreImageBlock = props => {
-  console.log(props)
   const {
     align,
     alt,

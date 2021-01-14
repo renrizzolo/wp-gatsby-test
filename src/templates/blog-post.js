@@ -12,15 +12,13 @@ import "../css/blog-post.css"
 import Bio from "../components/bio"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import BlocksRenderer from "../components/blocks/BlocksRenderer"
+import BlocksRenderer from "../components/Blocks/BlocksRenderer"
 
 const BlogPostTemplate = ({ data: { previous, next, post } }) => {
   const featuredImage = {
     fluid: post.featuredImage?.node?.localFile?.childImageSharp?.fluid,
     alt: post.featuredImage?.node?.alt || ``,
   }
-  console.log(post)
-
   return (
     <Layout>
       <SEO title={post.title} description={post.excerpt} />
