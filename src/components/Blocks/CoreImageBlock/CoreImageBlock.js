@@ -22,6 +22,10 @@ const CoreImageBlock = props => {
   } = props.attributes || {}
   const { img } = props.block
 
+  if (!img)
+    return (
+      <div dangerouslySetInnerHTML={{ __html: props.block?.originalContent }} />
+    )
   let blockClass = "core-block-image margin-bottom-md"
 
   const classes = []
