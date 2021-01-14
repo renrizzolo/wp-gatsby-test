@@ -19,5 +19,5 @@ const fixGatsbySourceWordPressExperimental = async () => {
     )
   }
 }
-
-fixGatsbySourceWordPressExperimental()
+// uncomment this then npm install to 'fix' block attributes
+// fixGatsbySourceWordPressExperimental()
