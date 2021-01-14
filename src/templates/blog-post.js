@@ -12,7 +12,7 @@ import "../css/blog-post.css"
 import Bio from "../components/bio"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import BlocksRenderer from "../components/Blocks/BlocksRenderer"
+import BlocksRenderer from "../components/blocks/BlocksRenderer"
 
 const BlogPostTemplate = ({ data: { previous, next, post } }) => {
   const featuredImage = {
@@ -394,6 +394,10 @@ export const CoreQuoteBlockFragment = graphql`
     }
   }
 `
+
+// embed attributes aren't working:
+// Abstract type WpCoreEmbedBlockAttributesUnion must resolve to an Object type at runtime for field WpCoreEmbedBlock.attributes with value { ... }, received "undefined". Either the WpCoreEmbedBlockAttributesUnion type
+// should provide a "resolveType" function or each possible type should provide an "isTypeOf" function.
 export const CoreEmbedBlock = graphql`
   fragment CoreEmbedBlock on WpCoreEmbedBlock {
     __typename
@@ -409,6 +413,7 @@ export const CoreEmbedBlock = graphql`
     }
   }
 `
+// current wp version uses CoreEmbedBlock instead of these
 // export const CoreEmbedFacebookBlock = graphql`
 //   fragment CoreEmbedFacebookBlock on WpCoreEmbedFacebookBlock {
 //     __typename
@@ -421,6 +426,7 @@ export const CoreEmbedBlock = graphql`
 //     originalContent
 //   }
 // `
+
 export const CoreHtmlBlock = graphql`
   fragment CoreHtmlBlock on WpCoreHtmlBlock {
     __typename
