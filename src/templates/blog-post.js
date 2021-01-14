@@ -398,6 +398,15 @@ export const CoreEmbedBlock = graphql`
   fragment CoreEmbedBlock on WpCoreEmbedBlock {
     __typename
     originalContent
+    attributes {
+      ... on WpCoreEmbedBlockAttributes {
+        url
+        providerNameSlug
+        caption
+        className
+        align
+      }
+    }
   }
 `
 // export const CoreEmbedFacebookBlock = graphql`
