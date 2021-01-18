@@ -161,15 +161,15 @@ export const CoreImageBlockFragment = graphql`
     name
     __typename
     originalContent
-    #img {
-    #  localFile {
-    #    childImageSharp {
-    #      fluid(maxWidth: 1000) {
-    #        ...GatsbyImageSharpFluid
-    #      }
-    #    }
-    #  }
-    #}
+    img {
+      localFile {
+        childImageSharp {
+          fluid(maxWidth: 1000) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+    }
     attributes {
       ... on WpCoreImageBlockAttributes {
         align
