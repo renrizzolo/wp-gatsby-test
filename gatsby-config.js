@@ -26,7 +26,7 @@ module.exports = {
       resolve: `gatsby-source-wordpress-experimental`,
       options: {
         // the only required plugin option for WordPress is the GraphQL url.
-        url: `https://kind-ape-25.loca.lt/graphql`,
+        url: `https://kindape25.pagekite.me/graphql`,
       },
     },
 
